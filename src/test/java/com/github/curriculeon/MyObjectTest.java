@@ -18,9 +18,25 @@ public class MyObjectTest {
         Person bob = new Person(0L, "Bob", 28);
         Person chris = new Person(0L, "Chris", 29);
         Person noel = new Person(0L, "Noel", 30);
+
+
         Arrays.asList(leon, bob, chris, noel).forEach(person -> System.out.print(person.json()));
         Arrays.asList(leon, bob, chris, noel).forEach(person -> System.out.print(person.json()));
-        Arrays.asList(leon, bob, chris, noel).forEach(person -> System.out.print(person.json()));
+    }
+
+    @Test
+    public void realLifeBuilderExample() {
+        Person leon = new Person(0L, "Leon", 27);
+        Person bob = new Person(0L, "Bob", 28);
+        Person chris = new Person(0L, "Chris", 29);
+        Person noel = new Person(0L, "Noel", 30);
+        Arrays
+                .asList(leon, bob, chris, noel)
+                .stream()
+                .map(person -> person.getName())
+                .filter(name -> name.startsWith("B"))
+                .distinct()
+                .forEach(System.out::print);
     }
 
     @Test
