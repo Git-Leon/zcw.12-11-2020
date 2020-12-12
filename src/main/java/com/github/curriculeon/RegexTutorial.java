@@ -1,5 +1,8 @@
 package com.github.curriculeon;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * @author leonhunter
  * @created 12/11/2020 - 6:13 PM
@@ -16,7 +19,11 @@ public class RegexTutorial implements Runnable {
 
     @Override
     public void run() {
-        String output = getStringToCompareAgainst().replaceAll("([A-Z][a-z])\\w+", "Brown Foxes");
-        System.out.println(output);
+        String stringToCompareTo = getStringToCompareAgainst();
+        Pattern pattern  = Pattern.compile("([A-Z]\\w+)");
+        Matcher matcher = pattern.matcher(stringToCompareTo);
+        while(matcher.find()) {
+            System.out.println(matcher.group(1));
+        }
     }
 }

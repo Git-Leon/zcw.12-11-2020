@@ -48,4 +48,9 @@ public class MyObjectTest {
                 .setBirthDate(new Date())
                 .createLicense();
     }
+
+    @Test
+    public void testRegexExample() {
+
+    }
 }
